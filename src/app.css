@@ -1,0 +1,9 @@
+@font-face {
+  font-family: geist;
+  src: url(assets/fonts/GeistVF.woff);
+}
+
+@font-face {
+  font-family: geist-mono;
+  src: url(assets/fonts/GeistMonoVF.woff);
+}
