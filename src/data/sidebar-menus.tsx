@@ -28,8 +28,8 @@ const sidebarNavMain: SidebarItem[] = [
     icon: UserIcon,
     url: '.',
     items: [
-      { title: 'Management', url: '/users/manage' },
-      { title: 'Logs', url: 'users/logs' },
+      { title: 'Management', url: '/dashboard/users/manage' },
+      { title: 'Logs', url: '/dashboard/users/logs' },
     ],
   },
 ]

@@ -13,7 +13,7 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 import { Link } from 'react-router-dom'
-import { useSidebarStore } from '@/stores/sidebar.tsx'
+import { useSidebarStore } from '@/stores/sidebar.ts'
 import {
   DropdownMenu,
   DropdownMenuContent,

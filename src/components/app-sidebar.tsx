@@ -2,21 +2,15 @@ import * as React from 'react'
 import { SidebarMenuItems } from '@/components/sidebar-menu-items.tsx'
 import { NavUser } from '@/components/nav-user'
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from '@/components/ui/sidebar'
-import { useSidebarStore } from '@/stores/sidebar.tsx'
+import { useSidebarStore } from '@/stores/sidebar.ts'
 import logo from '@/assets/rks.png'
 import textLogo from '@/assets/rks-text.png'
-
-const tempData = {
-  user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
-}
+import { useUserStore } from '@/stores/user.ts'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const sidebarItems = useSidebarStore((state) => state.items)
   const isOpen = useSidebarStore((state) => state.isOpen)
+  const user = useUserStore((state) => state.user) as {name: string, number: number}
   return (
     <Sidebar collapsible='icon' {...props}>
       <SidebarHeader>
@@ -29,7 +23,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenuItems items={sidebarItems} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={tempData.user} />
+        <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
