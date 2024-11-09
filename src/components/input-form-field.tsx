@@ -1,14 +1,11 @@
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils.ts'
-import { Control, FieldValues, FormState } from 'react-hook-form'
 import { ReactNode } from 'react'
 
 type Props = {
-  form: {
-    control: Control<FieldValues>
-    formState: FormState<FieldValues>
-  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  form: any
   name: string
   formLabel: string
   placeholder?: string
@@ -54,10 +51,17 @@ export function InputFormField({
         control={form.control}
         name={name}
         render={({ field }) => (
-          <FormItem className='flex flex-col items-start'>
-            <FormLabel className={labelClassName}>{formLabel}</FormLabel>
+          <FormItem className='flex flex-col'>
+            <FormLabel className={cn('text-foreground', labelClassName)}>{formLabel}</FormLabel>
             <FormControl>
-              <Input placeholder={placeholder} className={cn('', className)} {...field} />
+              <Input
+                placeholder={placeholder}
+                className={cn(
+                  'w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500',
+                  className,
+                )}
+                {...field}
+              />
             </FormControl>
             {description && <FormDescription>{description}</FormDescription>}
             <FormMessage />
